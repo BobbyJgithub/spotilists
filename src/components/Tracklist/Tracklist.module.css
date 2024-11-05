@@ -1,0 +1,7 @@
+.tracklist {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust the min value as needed */
+    grid-auto-rows: min-content; /* Set the row height to the minimum content height */
+    gap: 2rem;
+    margin: 4rem;
+}
