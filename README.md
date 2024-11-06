@@ -25,7 +25,6 @@ A React web application that allows users to search for songs using the Spotify 
 - **CSS Modules**: Modular styling approach for component-specific styles
 - **Spotify Web API**: Integration for music data and playlist management
 - **GitHub**: Version control and project hosting
-- **JavaScript ES6+**: Modern JavaScript features and syntax
 
 ## What I Learned
 
@@ -69,5 +68,5 @@ Throughout this project, I gained experience with:
 3. Click on songs to add them to your playlist
 ![Usage Flow](./readme-images/site_screencap4.png)
 4. Name your playlist
-5. Click "Save to Spotify" to save your playlist
 ![Usage Flow](./readme-images/site_screencap3.png)
+6. Click "Save to Spotify" to save your playlist
