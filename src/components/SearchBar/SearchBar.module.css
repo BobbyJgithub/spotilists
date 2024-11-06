@@ -1,43 +1,43 @@
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .searchBar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-    padding: 20px 0;
-    border: 1px solid #191414;
-    width: 40rem;
-    border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  padding: 20px 0;
+  border: 1px solid #191414;
+  width: 40rem;
+  border-radius: 50px;
 }
 
 .input {
-    border: none; /* Remove border */
-    background: none; /* Remove background */
-    outline: none; /* Remove outline */
-    padding: 0.5rem 2rem; /* Add padding for better spacing */
-    font-size: 1.5rem; /* Adjust font size */
-    text-align: left; /* Align text to the left */
-    width: 100%; /* Ensure the input takes up the full width */
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0.5rem 2rem;
+  font-size: 1.5rem;
+  text-align: left;
+  width: 100%;
 }
 
 .input::placeholder {
-    text-align: left; /* Align placeholder text to the left */
+  text-align: left;
 }
 
 .button {
-    border: none; /* Remove border */
-    background: none; /* Remove background */
-    outline: none; /* Remove outline */
-    padding: 0.5rem 1rem; /* Add padding for better spacing */
-    font-size: 1.5rem; /* Adjust font size */
-    cursor: pointer; /* Change cursor to pointer */
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .searchIcon {
-    color: #191414; /* Change the color to your desired color */
+  color: #191414;
 }

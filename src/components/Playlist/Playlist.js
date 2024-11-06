@@ -2,6 +2,7 @@ import React from "react";
 import Tracklist from "../Tracklist/Tracklist";
 import styles from "./Playlist.module.css";
 
+// Component to render the playlist
 function Playlist({
   playlistData,
   setPlaylistData,
@@ -10,13 +11,17 @@ function Playlist({
   handleSavePlaylist,
   isLoading,
 }) {
+  // Handle focus on input to select all text
   const handleFocus = (event) => {
     event.target.select();
   };
 
   return (
     <>
-      <h2 className={styles.title}>Playlist</h2>
+      <div className={styles.title}>
+        <h1 className={styles.title1}>Play</h1>
+        <h1 className={styles.title2}>list</h1>
+      </div>
       <div className={styles.container}>
         <div className={styles.playlist}>
           <input
