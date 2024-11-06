@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# Spotify Playlist Creator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React web application that allows users to search for songs using the Spotify API and create custom playlists that can be saved directly to their Spotify account.
 
-## Available Scripts
+![App Screenshot](./readme-images/site_screencap4.png)
 
-In the project directory, you can run:
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Spotify Authentication**: Secure user authentication through Spotify's OAuth flow
+- **Song Search**: Search Spotify's vast library by song title
+- **Song Details**: Display comprehensive track information including:
+  - Song title
+  - Artist name
+  - Album name
+  - Album artwork
+- **Playlist Management**:
+  - Add/remove tracks with a simple click
+  - Custom playlist naming
+  - Save playlists directly to your Spotify account
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+- **React**: Built using functional components and hooks
+- **CSS Modules**: Modular styling approach for component-specific styles
+- **Spotify Web API**: Integration for music data and playlist management
+- **GitHub**: Version control and project hosting
+- **JavaScript ES6+**: Modern JavaScript features and syntax
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## What I Learned
 
-### `npm run build`
+Throughout this project, I gained experience with:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Building a multi-component React application
+- Managing application state using React hooks (useState, useEffect)
+- Implementing OAuth authentication flow
+- Working with REST APIs and handling asynchronous operations
+- Using CSS Modules for styled components
+- Props management and component communication
+- Version control with Git and GitHub
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Areas for Improvement
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **API Implementation**:
+   - Currently relies heavily on example code and Copilot
+   - Need to better understand OAuth flows and API documentation
+   - Goal: Implement API integrations from scratch in future projects
 
-### `npm run eject`
+2. **Testing**:
+   - Currently lacks test coverage
+   - Need to implement:
+     - Unit tests for components
+     - Integration tests for API calls
+     - End-to-end testing
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Future Enhancements
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [ ] Create shareable playlist links
+- [ ] Add loading animations
+- [ ] Implement comprehensive testing suite
+- [ ] Mobile Compatibility
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📱 Usage
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Log in with your Spotify account
+2. Search for songs using the search bar
+3. Click on songs to add them to your playlist
+4. Name your playlist
+5. Click "Save to Spotify" to save your playlist
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Usage Flow](./readme-images/site_screencap2.png)
+![Usage Flow](./readme-images/site_screencap5.png)
+![Usage Flow](./readme-images/site_screencap4.png)
+![Usage Flow](./readme-images/site_screencap3.png)
