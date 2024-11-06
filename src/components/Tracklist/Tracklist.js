@@ -9,9 +9,11 @@ function Tracklist({ playlistData, setPlaylistData, songs }) {
                 {songs.map(song => (
                     <Track 
                         key={song.id} 
+                        id={song.id}
                         name={song.name} 
                         artist={song.artist} 
                         album={song.album} 
+                        albumArt={song.albumArt}
                         playlistData={playlistData}
                         setPlaylistData={setPlaylistData}
                     />

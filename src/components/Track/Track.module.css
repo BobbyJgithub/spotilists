@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 5px solid black;
+    border: 5px solid #191414;
     width: fit-content;
     border-radius: 20px;
     overflow: hidden;
@@ -17,13 +17,32 @@
 }
 
 .title {
-    font-size: 2rem; /* Set the font size to 1.5rem */
+    font-size: clamp(1rem, 2.5vw, 1.8rem); /* Responsive font size */
     font-weight: 700; /* Set the font weight to 700 */
-    margin: 0; /* Add a margin of 0.5rem above and below the title */
+    margin: 5px 5px 5px 5px; /* Add a margin of 0.5rem above and below the title */
+    line-height: 1.2; /* Adjust line height */
+    overflow: hidden; /* Hide overflow content */
+    text-overflow: ellipsis; /* Add ellipsis (...) for overflow content */
+    display: -webkit-box; /* Display as a WebKit box */
+    -webkit-box-orient: vertical; /* Set box orientation to vertical */
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    max-width: 100%; /* Ensure the title does not exceed the container width */
 }
 
-.details {
+.artist {
     display: flex; /* Make the details section a flex container */
-    justify-content: space-between; /* Align the items in the details section to the start and end */
-    margin: 0 0 5px 0;
+    justify-self: center; /* Align the items in the details section to the start and end */
+    width: fit-content; /* Make the details section take up the minimum width needed */
+    margin: 0 8px 5px 8px;
+    font-size: clamp(0.5rem, 2.5vw, 1rem); /* Responsive font size */
+
+}
+
+.album {
+    display: flex; /* Make the details section a flex container */
+    justify-self: center; /* Align the items in the details section to the start and end */
+    width: fit-content; /* Make the details section take up the minimum width needed */
+    margin: 0 8px 5px 8px;
+    font-size: clamp(0.5rem, 2.5vw, 1rem); /* Responsive font size */
+
 }

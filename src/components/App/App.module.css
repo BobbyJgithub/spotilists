@@ -1,0 +1,14 @@
+.container {
+    justify-self: center;
+    margin: 2rem 0 0 0;
+}
+
+.title1, .title2 {
+    display: inline-block; /* Make the elements inline-block */
+    margin: 0; /* Remove default margin */
+    font-size: clamp(1rem, 4vw, 5rem);
+}
+
+.title1 {
+    color: #1DB954; /* Set the color to Spotify green */
+}

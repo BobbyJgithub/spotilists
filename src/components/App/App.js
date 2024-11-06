@@ -1,73 +1,112 @@
-import './App.css';
-import React, {useState} from 'react';
-import SearchBar from '../SearchBar/SearchBar.js';
-import SearchResults from '../SearchResults/SearchResults.js';
-import Tracklist from '../Tracklist/Tracklist.js';
-import Playlist from '../Playlist/Playlist.js';
-import Track from '../Track/Track.js';
-
-const mockData = [
-  {
-      id: 1,
-      name: "Song 1",
-      artist: "Artist 1",
-      album: "Album 1",
-  },
-  {
-      id: 2,
-      name: "Song 2",
-      artist: "Artist 2",
-      album: "Album 2",
-  },
-  {
-      id: 3,
-      name: "Song 3",
-      artist: "Artist 3",
-      album: "Album 3",
-  },
-  {
-      id: 4,
-      name: "Song 4",
-      artist: "Artist 4",
-      album: "Album 4",
-  },
-  {
-      id: 5,
-      name: "Song 5",
-      artist: "Artist 5",
-      album: "Album 5",
-  },
-  {
-      id: 6,
-      name: "Song 6",
-      artist: "Artist 6",
-      album: "Album 6",
-  },
-  {
-      id: 7,
-      name: "Song 7",
-      artist: "Artist 7",
-      album: "Album 7",
-  },
-  {
-      id: 8,
-      name: "Song 8",
-      artist: "Artist 8",
-      album: "Album 8",
-  }
-];
-
+// App.js
+import styles from './App.module.css';
+import './App.css'
+import React, { useState } from 'react';
+import SearchBar from '../SearchBar/SearchBar';
+import SearchResults from '../SearchResults/SearchResults';
+import Playlist from '../Playlist/Playlist';
+import Spotify from '../../util/Spotify';
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
   const [playlistData, setPlaylistData] = useState([]);
+  const [playlistName, setPlaylistName] = useState("New Playlist");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleSearch = async (term) => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      const results = await Spotify.search(term);
+      setSearchResults(results);
+    } catch (error) {
+      setError(`Search failed: ${error.message}`);
+      console.error('Search failed:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleSavePlaylist = async () => {
+    if (!playlistName.trim()) {
+      setError("Please enter a playlist name");
+      return;
+    }
+
+    if (!playlistData.length) {
+      setError("Please add some tracks to your playlist");
+      return;
+    }
+
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const trackUris = playlistData
+        .filter(track => track && track.id)
+        .map(track => `spotify:track:${track.id}`);
+
+      console.log('Track URIs to save:', trackUris);
+
+      if (!trackUris.length) {
+        throw new Error("No valid track URIs found in playlist");
+      }
+
+      await Spotify.savePlaylist(playlistName, trackUris);
+      setPlaylistData([]);
+      setPlaylistName("New Playlist");
+      alert("Playlist saved successfully!");
+    } catch (error) {
+      const errorMessage = error.message || "Failed to save playlist";
+      setError(errorMessage);
+      console.error('Failed to save playlist:', error);
+      alert(errorMessage);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="App">
-      <h1>Spotilists</h1>
-      <SearchBar searchValue={searchValue} setSearchValue={setSearchValue}/>
-      <SearchResults searchValue={searchValue} playlistData={playlistData} setPlaylistData={setPlaylistData} songs={mockData}/>
-      <Playlist playlistData={playlistData} setPlaylistData={setPlaylistData} songs={mockData}/> {/* Pass mockData to Playlist */}
+      <div className={styles.container}>
+        <h1 className={styles.title1}>Spoti</h1>
+        <h1 className={styles.title2}>Lists</h1>
+      </div>
+      
+      {error && (
+        <div className="error-message" style={{ color: 'red', margin: '10px 0' }}>
+          {error}
+        </div>
+      )}
+
+      <SearchBar 
+        searchValue={searchValue} 
+        setSearchValue={setSearchValue}
+        onSearch={handleSearch}
+      />
+      
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          <SearchResults 
+            searchValue={searchValue} 
+            playlistData={playlistData} 
+            setPlaylistData={setPlaylistData} 
+            songs={searchResults}
+          />
+          <Playlist 
+            playlistData={playlistData} 
+            setPlaylistData={setPlaylistData} 
+            playlistName={playlistName}
+            setPlaylistName={setPlaylistName}
+            handleSavePlaylist={handleSavePlaylist}
+            isLoading={isLoading}
+          />
+        </>
+      )}
     </div>
   );
 }

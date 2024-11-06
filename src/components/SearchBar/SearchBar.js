@@ -1,27 +1,38 @@
-import React, {useState} from "react";
+// SearchBar.js
+import React, { useState } from "react";
+import styles from "./SearchBar.module.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
-function SearchBar(props) {
-    const [search, setSearch] = useState("");
+function SearchBar({ onSearch }) {
+  const [search, setSearch] = useState("");
 
-    const handleSearch = (event) => {
-        setSearch(event.target.value);
-    }
+  const handleSearch = (event) => {
+    setSearch(event.target.value);
+  };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log("Search Value Submitted:", search); // Log the search value
-        props.setSearchValue(search); // Use the search state value here
-        setSearch(""); // Clear the search state value after submitting
-    }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onSearch(search);
+    setSearch("");
+  };
 
   return (
-    <>
-    <form onSubmit={handleSubmit}>
-        <label htmlFor="search">Search:</label>
-        <input type="text" id="search" name="search" value={search} onChange={handleSearch}/>
-        <button type="submit">Submit</button>
-    </form>
-    </>
+    <div className={styles.container}>
+      <form onSubmit={handleSubmit} className={styles.searchBar}>
+        <input
+          type="text"
+          id="search"
+          name="search"
+          className={styles.input}
+          value={search}
+          onChange={handleSearch}
+          placeholder="Search for a song..."
+        />
+        <button type="submit" className={styles.button}>
+        <i className={`fas fa-search ${styles.searchIcon}`}></i> {/* Font Awesome search icon */}
+        </button>
+      </form>
+    </div>
   );
 }
 
