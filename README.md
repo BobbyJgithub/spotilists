@@ -59,17 +59,15 @@ Throughout this project, I gained experience with:
 - [ ] Add loading animations
 - [ ] Implement comprehensive testing suite
 - [ ] Mobile Compatibility
-```
 
 ## 📱 Usage
 
 1. Log in with your Spotify account
+![Usage Flow](./readme-images/site_screencap2.png)
 2. Search for songs using the search bar
+![Usage Flow](./readme-images/site_screencap5.png)
 3. Click on songs to add them to your playlist
+![Usage Flow](./readme-images/site_screencap4.png)
 4. Name your playlist
 5. Click "Save to Spotify" to save your playlist
-
-![Usage Flow](./readme-images/site_screencap2.png)
-![Usage Flow](./readme-images/site_screencap5.png)
-![Usage Flow](./readme-images/site_screencap4.png)
 ![Usage Flow](./readme-images/site_screencap3.png)
