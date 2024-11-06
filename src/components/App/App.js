@@ -1,7 +1,7 @@
 // App.js
 import styles from './App.module.css';
 import './App.css'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
@@ -14,12 +14,17 @@ function App() {
   const [playlistName, setPlaylistName] = useState("New Playlist");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [accessToken, setAccessToken] = useState('');
+
+  useEffect(() => {
+    setAccessToken(Spotify.getAccessToken());
+  }, [accessToken]);
 
   const handleSearch = async (term) => {
     setIsLoading(true);
     setError(null);
     try {
-      const results = await Spotify.search(term);
+      const results = await Spotify.search(term, accessToken);
       setSearchResults(results);
     } catch (error) {
       setError(`Search failed: ${error.message}`);

@@ -25,10 +25,9 @@ const Spotify = {
     }
   },
 
-  async search(term) {
+  async search(term, accessToken) {
     if (!term) return [];
     
-    const accessToken = Spotify.getAccessToken();
     try {
       const response = await fetch(
         `https://api.spotify.com/v1/search?type=track&q=${encodeURIComponent(term)}`,
