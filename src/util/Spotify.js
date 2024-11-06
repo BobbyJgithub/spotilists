@@ -1,6 +1,6 @@
 // Spotify API credentials
 const clientId = "6e97dd530e2f40928a36e520901ceed5";
-const redirectUri = "http://localhost:3000/";
+const redirectUri = "http://bobbyjgithub.github.io/spotilists/";
 let accessToken;
 
 const Spotify = {
