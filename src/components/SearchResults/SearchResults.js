@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import Tracklist from "../Tracklist/Tracklist";
 import styles from "./SearchResults.module.css";
 
+// Component to render search results
 function SearchResults({ searchValue, playlistData, setPlaylistData, songs }) {
   const [filteredSongs, setFilteredSongs] = useState([]);
 
+  // Filter songs based on search value
   useEffect(() => {
     const results = songs.filter((song) =>
       song.name.toLowerCase().includes(searchValue.toLowerCase())
