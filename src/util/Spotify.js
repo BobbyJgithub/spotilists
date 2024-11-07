@@ -1,5 +1,5 @@
 // Spotify API credentials
-const clientId = "6e97dd530e2f40928a36e520901ceed5";
+const clientId = ""; //CLIENT ID
 const redirectUri = "https://bobbyjgithub.github.io/spotilists/";
 let accessToken;
 
