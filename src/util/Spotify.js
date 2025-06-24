@@ -1,5 +1,6 @@
 // Spotify API credentials
 const clientId = process.env.CLIENT_ID;
+const redirectUri = "https://spotilists.netlify.app/"
 let accessToken;
 
 const Spotify = {
