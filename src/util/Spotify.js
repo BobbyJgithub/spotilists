@@ -1,5 +1,5 @@
 // Spotify API credentials
-const clientId = process.env.CLIENT_ID;
+const clientId = "07784a49ffea4fd68ccfadfdb522d0e9";
 let accessToken;
 
 const Spotify = {
